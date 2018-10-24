@@ -63,7 +63,7 @@ def scrape_products(page, concern, category):
     return df
 
 
-def scrape_ingredients(urls):
+def scrape_ingredients(target, urls):
     """ 
     Scrapes product ingredients from detail pages
 
@@ -78,7 +78,7 @@ def scrape_ingredients(urls):
     df = pd.DataFrame()
 
     for url in urls:
-        browser.get('https://www.sephora.com' + url)
+        browser.get(target + url)
 
         # Close modal
         if browser.find_elements_by_class_name("css-1mfnet7"):
